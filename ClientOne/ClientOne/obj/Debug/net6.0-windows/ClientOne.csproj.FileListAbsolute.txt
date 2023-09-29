@@ -1,0 +1,64 @@
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.exe
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.deps.json
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.runtimeconfig.json
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.dll
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.pdb
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.AssemblyReference.cache
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.Form1.resources
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.GenerateResource.cache
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.AssemblyInfoInputs.cache
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.AssemblyInfo.cs
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.CoreCompileInputs.cache
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.CopyComplete
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.dll
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\refint\ClientOne.dll
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.pdb
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.genruntimeconfig.cache
+C:\Users\Nameless\Desktop\ClientOne\ClientOne\obj\Debug\net6.0-windows\ref\ClientOne.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.exe
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.deps.json
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.runtimeconfig.json
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.pdb
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.AssemblyReference.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.Form1.resources
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.Properties.Resources.resources
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.GenerateResource.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.AssemblyInfoInputs.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.AssemblyInfo.cs
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.CoreCompileInputs.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.CopyComplete
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\refint\ClientOne.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.pdb
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.genruntimeconfig.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelha3DP2P\ClientOne\ClientOne\obj\Debug\net6.0-windows\ref\ClientOne.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.exe
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.deps.json
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.runtimeconfig.json
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\ClientOne.pdb
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\Grpc.Core.Api.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\Grpc.Net.Client.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\Grpc.Net.Common.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.AssemblyReference.cache
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.Form1.resources
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.Properties.Resources.resources
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.GenerateResource.cache
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.AssemblyInfoInputs.cache
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.AssemblyInfo.cs
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.CoreCompileInputs.cache
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.csproj.CopyComplete
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\refint\ClientOne.dll
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.pdb
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ClientOne.genruntimeconfig.cache
+C:\Users\Nameless\Desktop\Migrando Comunicação\ClientOne\ClientOne\obj\Debug\net6.0-windows\ref\ClientOne.dll

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option csharp_namespace = "ClientOne";
+
+package greet;
+
+service Greeter{
+	rpc SendMessage (stream ClientInfo) returns (stream ChatMessage);
+	rpc SendGameMessage (stream PlayerRequest) returns (stream OpponentResponse);
+}
+
+message ClientInfo {
+  string ClientId = 1;
+  string Message = 2;
+  string ClientIdToSend = 3;
+  bool FirstTime = 5;
+}
+
+message ChatMessage {
+  string Message = 2;
+}
+
+message PlayerRequest{
+	string Symbol = 1;
+	string Text = 2;
+	string ClientPlayed = 3;
+    string ClientId = 4;
+	string ClientIdToSend = 5;
+	bool FirstTime = 6;
+}
+
+message OpponentResponse{
+	string Symbol = 1;
+	string Text = 2;
+	string ClientPlayed = 3;
+}
