@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nameless\\Desktop\\Migrando Comunicação\\ClientOne\\ClientOne\\ClientOne.csproj": {}
+    "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelhagRPC\\ClientOne\\ClientOne\\ClientOne.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nameless\\Desktop\\Migrando Comunicação\\ClientOne\\ClientOne\\ClientOne.csproj": {
+    "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelhagRPC\\ClientOne\\ClientOne\\ClientOne.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nameless\\Desktop\\Migrando Comunicação\\ClientOne\\ClientOne\\ClientOne.csproj",
+        "projectUniqueName": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelhagRPC\\ClientOne\\ClientOne\\ClientOne.csproj",
         "projectName": "ClientOne",
-        "projectPath": "C:\\Users\\Nameless\\Desktop\\Migrando Comunicação\\ClientOne\\ClientOne\\ClientOne.csproj",
+        "projectPath": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelhagRPC\\ClientOne\\ClientOne\\ClientOne.csproj",
         "packagesPath": "C:\\Users\\Nameless\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nameless\\Desktop\\Migrando Comunicação\\ClientOne\\ClientOne\\obj\\",
+        "outputPath": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelhagRPC\\ClientOne\\ClientOne\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nameless\\AppData\\Roaming\\NuGet\\NuGet.Config",

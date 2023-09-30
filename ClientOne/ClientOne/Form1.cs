@@ -14,12 +14,13 @@ namespace ClientOne
         private GrpcChannel channel;
         private Greeter.GreeterClient client1;
 
-        public AsyncDuplexStreamingCall<ClientInfo, ChatMessage> streamingCall;
-        public IAsyncStreamWriter<ClientInfo> requestStream;
-        public IAsyncStreamReader<ChatMessage> responseStream;
-        public AsyncDuplexStreamingCall<PlayerRequest, OpponentResponse> streamingPlayerCall;
-        public IAsyncStreamWriter<PlayerRequest> requestPlayerStream;
-        public IAsyncStreamReader<OpponentResponse> responsePlayerStream;
+        public AsyncDuplexStreamingCall<PlayerChatInfoRequest, PlayerChatInfoResponse> streamingCall;
+        public IAsyncStreamWriter<PlayerChatInfoRequest> requestStream;
+        public IAsyncStreamReader<PlayerChatInfoResponse> responseStream;
+        public AsyncDuplexStreamingCall<PlayerGameDataRequest, PlayerGameDataResponse> streamingPlayerCall;
+        public IAsyncStreamWriter<PlayerGameDataRequest> requestPlayerStream;
+        public IAsyncStreamReader<PlayerGameDataResponse> responsePlayerStream;
+
         private string clientId = "11111";
         private string clientIdToSend = "0000";
 
@@ -72,18 +73,17 @@ namespace ClientOne
                 //int port = int.Parse(ServerPortTextBox.Text);
 
                 //await StartServerAsync(ip, port);
-                streamingPlayerCall = client1.SendGameMessage();
-
+                streamingPlayerCall = client1.SendPlayerGameData();
                 requestPlayerStream = streamingPlayerCall.RequestStream;
                 responsePlayerStream = streamingPlayerCall.ResponseStream;
 
-                streamingCall = client1.SendMessage();
+                streamingCall = client1.SendPlayerMessage();
                 requestStream = streamingCall.RequestStream;
                 responseStream = streamingCall.ResponseStream;
 
 
-                await SendDataAsync(new PlayerRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
-                await SendDataAsync(new ClientInfo { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
+                await SendGameDataRequestAsync(new PlayerGameDataRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
+                await SendChatInfoAsync(new PlayerChatInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
             }
             catch
             {
@@ -91,39 +91,36 @@ namespace ClientOne
             }
         }
 
-        public async Task SendDataAsync<TData>(TData data)
+        public async Task SendGameDataRequestAsync(PlayerGameDataRequest data)
         {
-            Type dataType = typeof(TData);
-
-            if (dataType == typeof(PlayerRequest))
-                await requestPlayerStream.WriteAsync(data as PlayerRequest);
-
-            else if (dataType == typeof(ClientInfo))
-                await requestStream.WriteAsync(data as ClientInfo);
-
             Task.Run(async () =>
             {
                 await foreach (var message in responsePlayerStream.ReadAllAsync())
                 {
-                    // Atualize a interface do usuário com as mensagens recebidas do servidor
                     Invoke((Action)(() =>
                     {
-                        ChatTextBox.Text += $"{message.Text}\r\n";     /*TODO: ENVIAR MENSAGEM DE CONECTADO NA TASK ABAIXO E TIRAR O \n DAQUI*/
+                        ChatTextBox.Text += $"{message.Text}\r\n";    
                     }));
                 }
             });
 
+            await requestPlayerStream.WriteAsync(data);
+        }
+
+        public async Task SendChatInfoAsync(PlayerChatInfoRequest data)
+        {
             Task.Run(async () =>
             {
-                await foreach (var message in responseStream.ReadAllAsync()) /*await foreach para lidar com mensagens à medida que são recebidas*/
-                {
-                    // O Invoke é usado para garantir que a atualização da interface do usuário ocorra no thread da interface do usuário, uma vez que a leitura de mensagens está ocorrendo em um thread separado criado pela task.
+                await foreach (var message in responseStream.ReadAllAsync()) 
+                {                    
                     Invoke((Action)(() =>
                     {
                         ChatTextBox.Text += $"{message.Message}\r\n";
                     }));
                 }
             });
+
+            await requestStream.WriteAsync(data);
         }
 
         private async Task StartServerAsync(IPAddress ip, int port)
@@ -171,7 +168,7 @@ namespace ClientOne
 
         private async void SendButton_Click(object sender, EventArgs e)
         {
-            await SendDataAsync(new ClientInfo { ClientId = clientId, ClientIdToSend = clientIdToSend, Message = MessageTextBox6.Text, FirstTime = false });
+            await SendChatInfoAsync(new PlayerChatInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, Message = MessageTextBox6.Text, FirstTime = false });
         }
 
         private async Task SendMessageAsync(string message)

@@ -5,22 +5,22 @@ option csharp_namespace = "ClientOne";
 package greet;
 
 service Greeter{
-	rpc SendMessage (stream ClientInfo) returns (stream ChatMessage);
-	rpc SendGameMessage (stream PlayerRequest) returns (stream OpponentResponse);
+	rpc SendPlayerMessage (stream PlayerChatInfoRequest) returns (stream PlayerChatInfoResponse);
+	rpc SendPlayerGameData (stream PlayerGameDataRequest) returns (stream PlayerGameDataResponse);
 }
 
-message ClientInfo {
+message PlayerChatInfoRequest {
   string ClientId = 1;
   string Message = 2;
   string ClientIdToSend = 3;
   bool FirstTime = 5;
 }
 
-message ChatMessage {
+message PlayerChatInfoResponse {
   string Message = 2;
 }
 
-message PlayerRequest{
+message PlayerGameDataRequest{
 	string Symbol = 1;
 	string Text = 2;
 	string ClientPlayed = 3;
@@ -29,7 +29,7 @@ message PlayerRequest{
 	bool FirstTime = 6;
 }
 
-message OpponentResponse{
+message PlayerGameDataResponse{
 	string Symbol = 1;
 	string Text = 2;
 	string ClientPlayed = 3;

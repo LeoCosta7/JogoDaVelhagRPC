@@ -24,41 +24,43 @@ namespace ClientOne {
     static GreetReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJQcm90b3MvZ3JlZXQucHJvdG8SBWdyZWV0IloKCkNsaWVudEluZm8SEAoI",
-            "Q2xpZW50SWQYASABKAkSDwoHTWVzc2FnZRgCIAEoCRIWCg5DbGllbnRJZFRv",
-            "U2VuZBgDIAEoCRIRCglGaXJzdFRpbWUYBSABKAgiHgoLQ2hhdE1lc3NhZ2US",
-            "DwoHTWVzc2FnZRgCIAEoCSKAAQoNUGxheWVyUmVxdWVzdBIOCgZTeW1ib2wY",
-            "ASABKAkSDAoEVGV4dBgCIAEoCRIUCgxDbGllbnRQbGF5ZWQYAyABKAkSEAoI",
-            "Q2xpZW50SWQYBCABKAkSFgoOQ2xpZW50SWRUb1NlbmQYBSABKAkSEQoJRmly",
-            "c3RUaW1lGAYgASgIIkYKEE9wcG9uZW50UmVzcG9uc2USDgoGU3ltYm9sGAEg",
-            "ASgJEgwKBFRleHQYAiABKAkSFAoMQ2xpZW50UGxheWVkGAMgASgJMokBCgdH",
-            "cmVldGVyEjgKC1NlbmRNZXNzYWdlEhEuZ3JlZXQuQ2xpZW50SW5mbxoSLmdy",
-            "ZWV0LkNoYXRNZXNzYWdlKAEwARJECg9TZW5kR2FtZU1lc3NhZ2USFC5ncmVl",
-            "dC5QbGF5ZXJSZXF1ZXN0GhcuZ3JlZXQuT3Bwb25lbnRSZXNwb25zZSgBMAFC",
-            "DKoCCUNsaWVudE9uZWIGcHJvdG8z"));
+            "ChJQcm90b3MvZ3JlZXQucHJvdG8SBWdyZWV0ImUKFVBsYXllckNoYXRJbmZv",
+            "UmVxdWVzdBIQCghDbGllbnRJZBgBIAEoCRIPCgdNZXNzYWdlGAIgASgJEhYK",
+            "DkNsaWVudElkVG9TZW5kGAMgASgJEhEKCUZpcnN0VGltZRgFIAEoCCIpChZQ",
+            "bGF5ZXJDaGF0SW5mb1Jlc3BvbnNlEg8KB01lc3NhZ2UYAiABKAkiiAEKFVBs",
+            "YXllckdhbWVEYXRhUmVxdWVzdBIOCgZTeW1ib2wYASABKAkSDAoEVGV4dBgC",
+            "IAEoCRIUCgxDbGllbnRQbGF5ZWQYAyABKAkSEAoIQ2xpZW50SWQYBCABKAkS",
+            "FgoOQ2xpZW50SWRUb1NlbmQYBSABKAkSEQoJRmlyc3RUaW1lGAYgASgIIkwK",
+            "FlBsYXllckdhbWVEYXRhUmVzcG9uc2USDgoGU3ltYm9sGAEgASgJEgwKBFRl",
+            "eHQYAiABKAkSFAoMQ2xpZW50UGxheWVkGAMgASgJMrYBCgdHcmVldGVyElQK",
+            "EVNlbmRQbGF5ZXJNZXNzYWdlEhwuZ3JlZXQuUGxheWVyQ2hhdEluZm9SZXF1",
+            "ZXN0Gh0uZ3JlZXQuUGxheWVyQ2hhdEluZm9SZXNwb25zZSgBMAESVQoSU2Vu",
+            "ZFBsYXllckdhbWVEYXRhEhwuZ3JlZXQuUGxheWVyR2FtZURhdGFSZXF1ZXN0",
+            "Gh0uZ3JlZXQuUGxheWVyR2FtZURhdGFSZXNwb25zZSgBMAFCDKoCCUNsaWVu",
+            "dE9uZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.ClientInfo), global::ClientOne.ClientInfo.Parser, new[]{ "ClientId", "Message", "ClientIdToSend", "FirstTime" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.ChatMessage), global::ClientOne.ChatMessage.Parser, new[]{ "Message" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerRequest), global::ClientOne.PlayerRequest.Parser, new[]{ "Symbol", "Text", "ClientPlayed", "ClientId", "ClientIdToSend", "FirstTime" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.OpponentResponse), global::ClientOne.OpponentResponse.Parser, new[]{ "Symbol", "Text", "ClientPlayed" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerChatInfoRequest), global::ClientOne.PlayerChatInfoRequest.Parser, new[]{ "ClientId", "Message", "ClientIdToSend", "FirstTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerChatInfoResponse), global::ClientOne.PlayerChatInfoResponse.Parser, new[]{ "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerGameDataRequest), global::ClientOne.PlayerGameDataRequest.Parser, new[]{ "Symbol", "Text", "ClientPlayed", "ClientId", "ClientIdToSend", "FirstTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerGameDataResponse), global::ClientOne.PlayerGameDataResponse.Parser, new[]{ "Symbol", "Text", "ClientPlayed" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class ClientInfo : pb::IMessage<ClientInfo>
+  public sealed partial class PlayerChatInfoRequest : pb::IMessage<PlayerChatInfoRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ClientInfo> _parser = new pb::MessageParser<ClientInfo>(() => new ClientInfo());
+    private static readonly pb::MessageParser<PlayerChatInfoRequest> _parser = new pb::MessageParser<PlayerChatInfoRequest>(() => new PlayerChatInfoRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<ClientInfo> Parser { get { return _parser; } }
+    public static pb::MessageParser<PlayerChatInfoRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -74,7 +76,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ClientInfo() {
+    public PlayerChatInfoRequest() {
       OnConstruction();
     }
 
@@ -82,7 +84,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ClientInfo(ClientInfo other) : this() {
+    public PlayerChatInfoRequest(PlayerChatInfoRequest other) : this() {
       clientId_ = other.clientId_;
       message_ = other.message_;
       clientIdToSend_ = other.clientIdToSend_;
@@ -92,8 +94,8 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ClientInfo Clone() {
-      return new ClientInfo(this);
+    public PlayerChatInfoRequest Clone() {
+      return new PlayerChatInfoRequest(this);
     }
 
     /// <summary>Field number for the "ClientId" field.</summary>
@@ -147,12 +149,12 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as ClientInfo);
+      return Equals(other as PlayerChatInfoRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(ClientInfo other) {
+    public bool Equals(PlayerChatInfoRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -264,7 +266,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(ClientInfo other) {
+    public void MergeFrom(PlayerChatInfoRequest other) {
       if (other == null) {
         return;
       }
@@ -349,16 +351,16 @@ namespace ClientOne {
 
   }
 
-  public sealed partial class ChatMessage : pb::IMessage<ChatMessage>
+  public sealed partial class PlayerChatInfoResponse : pb::IMessage<PlayerChatInfoResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ChatMessage> _parser = new pb::MessageParser<ChatMessage>(() => new ChatMessage());
+    private static readonly pb::MessageParser<PlayerChatInfoResponse> _parser = new pb::MessageParser<PlayerChatInfoResponse>(() => new PlayerChatInfoResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<ChatMessage> Parser { get { return _parser; } }
+    public static pb::MessageParser<PlayerChatInfoResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -374,7 +376,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ChatMessage() {
+    public PlayerChatInfoResponse() {
       OnConstruction();
     }
 
@@ -382,15 +384,15 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ChatMessage(ChatMessage other) : this() {
+    public PlayerChatInfoResponse(PlayerChatInfoResponse other) : this() {
       message_ = other.message_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ChatMessage Clone() {
-      return new ChatMessage(this);
+    public PlayerChatInfoResponse Clone() {
+      return new PlayerChatInfoResponse(this);
     }
 
     /// <summary>Field number for the "Message" field.</summary>
@@ -408,12 +410,12 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as ChatMessage);
+      return Equals(other as PlayerChatInfoResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(ChatMessage other) {
+    public bool Equals(PlayerChatInfoResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -486,7 +488,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(ChatMessage other) {
+    public void MergeFrom(PlayerChatInfoResponse other) {
       if (other == null) {
         return;
       }
@@ -538,16 +540,16 @@ namespace ClientOne {
 
   }
 
-  public sealed partial class PlayerRequest : pb::IMessage<PlayerRequest>
+  public sealed partial class PlayerGameDataRequest : pb::IMessage<PlayerGameDataRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<PlayerRequest> _parser = new pb::MessageParser<PlayerRequest>(() => new PlayerRequest());
+    private static readonly pb::MessageParser<PlayerGameDataRequest> _parser = new pb::MessageParser<PlayerGameDataRequest>(() => new PlayerGameDataRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<PlayerRequest> Parser { get { return _parser; } }
+    public static pb::MessageParser<PlayerGameDataRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -563,7 +565,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PlayerRequest() {
+    public PlayerGameDataRequest() {
       OnConstruction();
     }
 
@@ -571,7 +573,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PlayerRequest(PlayerRequest other) : this() {
+    public PlayerGameDataRequest(PlayerGameDataRequest other) : this() {
       symbol_ = other.symbol_;
       text_ = other.text_;
       clientPlayed_ = other.clientPlayed_;
@@ -583,8 +585,8 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public PlayerRequest Clone() {
-      return new PlayerRequest(this);
+    public PlayerGameDataRequest Clone() {
+      return new PlayerGameDataRequest(this);
     }
 
     /// <summary>Field number for the "Symbol" field.</summary>
@@ -662,12 +664,12 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as PlayerRequest);
+      return Equals(other as PlayerGameDataRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(PlayerRequest other) {
+    public bool Equals(PlayerGameDataRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -805,7 +807,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(PlayerRequest other) {
+    public void MergeFrom(PlayerGameDataRequest other) {
       if (other == null) {
         return;
       }
@@ -912,16 +914,16 @@ namespace ClientOne {
 
   }
 
-  public sealed partial class OpponentResponse : pb::IMessage<OpponentResponse>
+  public sealed partial class PlayerGameDataResponse : pb::IMessage<PlayerGameDataResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<OpponentResponse> _parser = new pb::MessageParser<OpponentResponse>(() => new OpponentResponse());
+    private static readonly pb::MessageParser<PlayerGameDataResponse> _parser = new pb::MessageParser<PlayerGameDataResponse>(() => new PlayerGameDataResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<OpponentResponse> Parser { get { return _parser; } }
+    public static pb::MessageParser<PlayerGameDataResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -937,7 +939,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpponentResponse() {
+    public PlayerGameDataResponse() {
       OnConstruction();
     }
 
@@ -945,7 +947,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpponentResponse(OpponentResponse other) : this() {
+    public PlayerGameDataResponse(PlayerGameDataResponse other) : this() {
       symbol_ = other.symbol_;
       text_ = other.text_;
       clientPlayed_ = other.clientPlayed_;
@@ -954,8 +956,8 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public OpponentResponse Clone() {
-      return new OpponentResponse(this);
+    public PlayerGameDataResponse Clone() {
+      return new PlayerGameDataResponse(this);
     }
 
     /// <summary>Field number for the "Symbol" field.</summary>
@@ -997,12 +999,12 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as OpponentResponse);
+      return Equals(other as PlayerGameDataResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(OpponentResponse other) {
+    public bool Equals(PlayerGameDataResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -1101,7 +1103,7 @@ namespace ClientOne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(OpponentResponse other) {
+    public void MergeFrom(PlayerGameDataResponse other) {
       if (other == null) {
         return;
       }

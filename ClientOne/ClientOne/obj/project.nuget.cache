@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vJqh4YiBugG9dK36V0IQXce8VZ53cyjpDRJHZpi9JhvHH/Xqj/aJfZSwvv4cB1qSlmEEwNd0N3Lmx/Uz0EZfRQ==",
+  "dgSpecHash": "u4nBfwCvSay55Bl+Wjvfu6EHy+QVrUfK5AJdPgLnv9WUoYCPhm4+kgp1pp3fcR+dIbpaMukEJvzLIeWThfxsGA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nameless\\Desktop\\Migrando Comunicação\\ClientOne\\ClientOne\\ClientOne.csproj",
+  "projectFilePath": "C:\\Users\\Nameless\\Documents\\Github\\JogoDaVelhagRPC\\ClientOne\\ClientOne\\ClientOne.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nameless\\.nuget\\packages\\google.protobuf\\3.24.3\\google.protobuf.3.24.3.nupkg.sha512",
     "C:\\Users\\Nameless\\.nuget\\packages\\grpc.core.api\\2.57.0\\grpc.core.api.2.57.0.nupkg.sha512",

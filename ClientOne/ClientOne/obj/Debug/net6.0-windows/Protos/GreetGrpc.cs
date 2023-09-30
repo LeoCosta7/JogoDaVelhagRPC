@@ -46,29 +46,29 @@ namespace ClientOne {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ClientOne.ClientInfo> __Marshaller_greet_ClientInfo = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.ClientInfo.Parser));
+    static readonly grpc::Marshaller<global::ClientOne.PlayerChatInfoRequest> __Marshaller_greet_PlayerChatInfoRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.PlayerChatInfoRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ClientOne.ChatMessage> __Marshaller_greet_ChatMessage = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.ChatMessage.Parser));
+    static readonly grpc::Marshaller<global::ClientOne.PlayerChatInfoResponse> __Marshaller_greet_PlayerChatInfoResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.PlayerChatInfoResponse.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ClientOne.PlayerRequest> __Marshaller_greet_PlayerRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.PlayerRequest.Parser));
+    static readonly grpc::Marshaller<global::ClientOne.PlayerGameDataRequest> __Marshaller_greet_PlayerGameDataRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.PlayerGameDataRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::ClientOne.OpponentResponse> __Marshaller_greet_OpponentResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.OpponentResponse.Parser));
+    static readonly grpc::Marshaller<global::ClientOne.PlayerGameDataResponse> __Marshaller_greet_PlayerGameDataResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ClientOne.PlayerGameDataResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::ClientOne.ClientInfo, global::ClientOne.ChatMessage> __Method_SendMessage = new grpc::Method<global::ClientOne.ClientInfo, global::ClientOne.ChatMessage>(
+    static readonly grpc::Method<global::ClientOne.PlayerChatInfoRequest, global::ClientOne.PlayerChatInfoResponse> __Method_SendPlayerMessage = new grpc::Method<global::ClientOne.PlayerChatInfoRequest, global::ClientOne.PlayerChatInfoResponse>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
-        "SendMessage",
-        __Marshaller_greet_ClientInfo,
-        __Marshaller_greet_ChatMessage);
+        "SendPlayerMessage",
+        __Marshaller_greet_PlayerChatInfoRequest,
+        __Marshaller_greet_PlayerChatInfoResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::ClientOne.PlayerRequest, global::ClientOne.OpponentResponse> __Method_SendGameMessage = new grpc::Method<global::ClientOne.PlayerRequest, global::ClientOne.OpponentResponse>(
+    static readonly grpc::Method<global::ClientOne.PlayerGameDataRequest, global::ClientOne.PlayerGameDataResponse> __Method_SendPlayerGameData = new grpc::Method<global::ClientOne.PlayerGameDataRequest, global::ClientOne.PlayerGameDataResponse>(
         grpc::MethodType.DuplexStreaming,
         __ServiceName,
-        "SendGameMessage",
-        __Marshaller_greet_PlayerRequest,
-        __Marshaller_greet_OpponentResponse);
+        "SendPlayerGameData",
+        __Marshaller_greet_PlayerGameDataRequest,
+        __Marshaller_greet_PlayerGameDataResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -104,24 +104,24 @@ namespace ClientOne {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.ClientInfo, global::ClientOne.ChatMessage> SendMessage(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.PlayerChatInfoRequest, global::ClientOne.PlayerChatInfoResponse> SendPlayerMessage(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SendMessage(new grpc::CallOptions(headers, deadline, cancellationToken));
+        return SendPlayerMessage(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.ClientInfo, global::ClientOne.ChatMessage> SendMessage(grpc::CallOptions options)
+      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.PlayerChatInfoRequest, global::ClientOne.PlayerChatInfoResponse> SendPlayerMessage(grpc::CallOptions options)
       {
-        return CallInvoker.AsyncDuplexStreamingCall(__Method_SendMessage, null, options);
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_SendPlayerMessage, null, options);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.PlayerRequest, global::ClientOne.OpponentResponse> SendGameMessage(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.PlayerGameDataRequest, global::ClientOne.PlayerGameDataResponse> SendPlayerGameData(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return SendGameMessage(new grpc::CallOptions(headers, deadline, cancellationToken));
+        return SendPlayerGameData(new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.PlayerRequest, global::ClientOne.OpponentResponse> SendGameMessage(grpc::CallOptions options)
+      public virtual grpc::AsyncDuplexStreamingCall<global::ClientOne.PlayerGameDataRequest, global::ClientOne.PlayerGameDataResponse> SendPlayerGameData(grpc::CallOptions options)
       {
-        return CallInvoker.AsyncDuplexStreamingCall(__Method_SendGameMessage, null, options);
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_SendPlayerGameData, null, options);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
