@@ -17,9 +17,14 @@ namespace ClientOne
         public AsyncDuplexStreamingCall<PlayerChatInfoRequest, PlayerChatInfoResponse> streamingCall;
         public IAsyncStreamWriter<PlayerChatInfoRequest> requestStream;
         public IAsyncStreamReader<PlayerChatInfoResponse> responseStream;
+
         public AsyncDuplexStreamingCall<PlayerGameDataRequest, PlayerGameDataResponse> streamingPlayerCall;
         public IAsyncStreamWriter<PlayerGameDataRequest> requestPlayerStream;
         public IAsyncStreamReader<PlayerGameDataResponse> responsePlayerStream;
+
+        public AsyncDuplexStreamingCall<PlayerInfoRequest, PlayerInfoResponse> streamingPlayerInfoCall;
+        public IAsyncStreamWriter<PlayerInfoRequest> requestPlayerInfoStream;
+        public IAsyncStreamReader<PlayerInfoResponse> responsePlayerInfoStream;
 
         private string clientId = "11111";
         private string clientIdToSend = "0000";
@@ -69,10 +74,6 @@ namespace ClientOne
         {
             try
             {
-                //IPAddress ip = IPAddress.Parse(ServerIPtextBox.Text);
-                //int port = int.Parse(ServerPortTextBox.Text);
-
-                //await StartServerAsync(ip, port);
                 streamingPlayerCall = client1.SendPlayerGameData();
                 requestPlayerStream = streamingPlayerCall.RequestStream;
                 responsePlayerStream = streamingPlayerCall.ResponseStream;
@@ -81,9 +82,14 @@ namespace ClientOne
                 requestStream = streamingCall.RequestStream;
                 responseStream = streamingCall.ResponseStream;
 
+                streamingPlayerInfoCall = client1.SendPlayerInfoData();
+                requestPlayerInfoStream = streamingPlayerInfoCall.RequestStream;
+                responsePlayerInfoStream = streamingPlayerInfoCall.ResponseStream;
+
 
                 await SendGameDataRequestAsync(new PlayerGameDataRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
                 await SendChatInfoAsync(new PlayerChatInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
+                await SendPlayerInfoAsync(new PlayerInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
             }
             catch
             {
@@ -121,6 +127,22 @@ namespace ClientOne
             });
 
             await requestStream.WriteAsync(data);
+        }
+
+        public async Task SendPlayerInfoAsync(PlayerInfoRequest data)
+        {
+            Task.Run(async () =>
+            {
+                await foreach (var message in responsePlayerInfoStream.ReadAllAsync())
+                {
+                    Invoke((Action)(() =>
+                    {
+                        ChatTextBox.Text += $"{message.Nickname}\r\n";
+                    }));
+                }
+            });
+
+            await requestPlayerInfoStream.WriteAsync(data);
         }
 
         private async Task StartServerAsync(IPAddress ip, int port)
@@ -421,6 +443,7 @@ namespace ClientOne
                         ChosenSymbol = symbolButton.Text
                     };
                 }
+                
 
                 if (ValidateUserNickName() && ValidateChosenSymbol())
                 {
@@ -434,7 +457,7 @@ namespace ClientOne
 
                     ChangeButtonsStatus(statusChangeItems);
 
-                    await SendMoveAsync(user);
+                    //await SendChatInfoAsync
                 }
             }
             catch
@@ -812,7 +835,7 @@ namespace ClientOne
 
                 isValidMove = false;
 
-                await SendMoveAsync(gameMessage);
+                //await SendGameDataRequestAsync(new PlayerGameDataRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, Position = button.Name, FirstTime = false });
 
                 DisableButton(button);
 

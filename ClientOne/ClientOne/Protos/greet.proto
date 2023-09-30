@@ -7,6 +7,7 @@ package greet;
 service Greeter{
 	rpc SendPlayerMessage (stream PlayerChatInfoRequest) returns (stream PlayerChatInfoResponse);
 	rpc SendPlayerGameData (stream PlayerGameDataRequest) returns (stream PlayerGameDataResponse);
+	rpc SendPlayerInfoData (stream PlayerInfoRequest) returns (stream PlayerInfoResponse);
 }
 
 message PlayerChatInfoRequest {
@@ -33,4 +34,17 @@ message PlayerGameDataResponse{
 	string Symbol = 1;
 	string Text = 2;
 	string ClientPlayed = 3;
+}
+
+message PlayerInfoRequest{
+	string Nickname = 1;
+	string ChosenSymbol = 2;
+	string ClientId = 3;
+	string ClientIdToSend = 4;
+	bool FirstTime = 5;
+}
+
+message PlayerInfoResponse{
+	string Nickname = 1;
+	string ChosenSymbol = 2;
 }
