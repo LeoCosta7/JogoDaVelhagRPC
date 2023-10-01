@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClientOne.DTO
 {
-    public class User : IMessageType
+    public class User 
     {
         public string Nickname { get; set; }
         public string ChosenSymbol { get; set; }
-
-        public string MessageType => "UserMessage";
     }
 }

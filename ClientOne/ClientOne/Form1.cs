@@ -38,7 +38,7 @@ namespace ClientOne
         Button symbolButton;
         GameMessage gameMessage;
         User user;
-        string OpponentName, OpponentSymbol;
+        string OpponentName = null, OpponentSymbol = null;
         Dictionary<string, bool> statusChangeItems;
 
         public Form1()
@@ -63,7 +63,7 @@ namespace ClientOne
                 {"btnTic",  false},
                 {"Symbol" , false},
                 {"SurrenderButton" , false},
-                {"Send" , false},
+                {"Send" , true},
                 {"NewGameButton" , false},
             };
 
@@ -85,11 +85,14 @@ namespace ClientOne
                 streamingPlayerInfoCall = client1.SendPlayerInfoData();
                 requestPlayerInfoStream = streamingPlayerInfoCall.RequestStream;
                 responsePlayerInfoStream = streamingPlayerInfoCall.ResponseStream;
+                ChangeButtonsStatus(statusChangeItems = new Dictionary<string, bool> { { "Symbol", true } });
 
 
                 await SendGameDataRequestAsync(new PlayerGameDataRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
                 await SendChatInfoAsync(new PlayerChatInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
                 await SendPlayerInfoAsync(new PlayerInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
+
+
             }
             catch
             {
@@ -105,7 +108,7 @@ namespace ClientOne
                 {
                     Invoke((Action)(() =>
                     {
-                        ChatTextBox.Text += $"{message.Text}\r\n";    
+                        ChatTextBox.Text += $"{message.Text}\r\n";
                     }));
                 }
             });
@@ -121,7 +124,7 @@ namespace ClientOne
                 {                    
                     Invoke((Action)(() =>
                     {
-                        ChatTextBox.Text += $"{message.Message}\r\n";
+                        ChatTextBox.Text += $"{OpponentName + ": " + message.Message}\r\n";
                     }));
                 }
             });
@@ -131,19 +134,29 @@ namespace ClientOne
 
         public async Task SendPlayerInfoAsync(PlayerInfoRequest data)
         {
-            Task.Run(async () =>
+            try
             {
-                await foreach (var message in responsePlayerInfoStream.ReadAllAsync())
+                Task.Run(async () =>
                 {
-                    Invoke((Action)(() =>
+                    await foreach (var message in responsePlayerInfoStream.ReadAllAsync())
                     {
-                        ChatTextBox.Text += $"{message.Nickname}\r\n";
-                    }));
-                }
-            });
+                        Invoke((Action)(() =>
+                        {
+                            OpponentName = message.Nickname;
+                            OpponentSymbol = message.ChosenSymbol;
+                        }));
+                    }
+                });
 
-            await requestPlayerInfoStream.WriteAsync(data);
+                await requestPlayerInfoStream.WriteAsync(data);
+            }
+            catch (Exception e)
+            {
+                // Lidar com exceções, se necessário
+            }
         }
+
+
 
         private async Task StartServerAsync(IPAddress ip, int port)
         {
@@ -435,15 +448,14 @@ namespace ClientOne
             {
                 symbolButton = (Button)sender;
 
-                if ((symbolButton == SymbolX || symbolButton == SymbolO) && client.Connected)
+                if (symbolButton == SymbolX || symbolButton == SymbolO)
                 {
                     user = new User
                     {
                         Nickname = NickName.Text,
                         ChosenSymbol = symbolButton.Text
                     };
-                }
-                
+                }                
 
                 if (ValidateUserNickName() && ValidateChosenSymbol())
                 {
@@ -457,7 +469,7 @@ namespace ClientOne
 
                     ChangeButtonsStatus(statusChangeItems);
 
-                    //await SendChatInfoAsync
+                    await SendPlayerInfoAsync(new PlayerInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, Nickname = user.Nickname, ChosenSymbol = user.ChosenSymbol, FirstTime = false });
                 }
             }
             catch
