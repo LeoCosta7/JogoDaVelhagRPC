@@ -22,18 +22,18 @@ message PlayerChatInfoResponse {
 }
 
 message PlayerGameDataRequest{
-	string Symbol = 1;
+	string Position = 1;
 	string Text = 2;
-	string ClientPlayed = 3;
+	bool ClientPlayed = 3;
     string ClientId = 4;
 	string ClientIdToSend = 5;
 	bool FirstTime = 6;
 }
 
 message PlayerGameDataResponse{
-	string Symbol = 1;
+	string Position = 1;
 	string Text = 2;
-	string ClientPlayed = 3;
+	bool ClientPlayed = 3;
 }
 
 message PlayerInfoRequest{

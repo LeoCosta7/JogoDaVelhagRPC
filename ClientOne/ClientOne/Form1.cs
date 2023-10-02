@@ -1,5 +1,6 @@
 using ClientOne.DTO;
 using ClientOne.DTO.Interface;
+using ClientOne.Entity;
 using Grpc.Core;
 using Grpc.Net.Client;
 using Newtonsoft.Json;
@@ -37,6 +38,7 @@ namespace ClientOne
         private bool isValidMove = true;
         Button symbolButton;
         GameMessage gameMessage;
+        OponnentGameData oponnentGameData;
         User user;
         string OpponentName = null, OpponentSymbol = null;
         Dictionary<string, bool> statusChangeItems;
@@ -54,9 +56,7 @@ namespace ClientOne
                     ServerIPtextBox.Text = address.ToString();
                 }
             }
-
-            channel = GrpcChannel.ForAddress("https://localhost:7069");
-            client1 = new Greeter.GreeterClient(channel);           
+                    
 
             statusChangeItems = new Dictionary<string, bool>
             {
@@ -74,6 +74,12 @@ namespace ClientOne
         {
             try
             {
+                string address = $"http://{ServerIPtextBox.Text}:{ServerPortTextBox.Text}";
+
+                channel = GrpcChannel.ForAddress("https://localhost:7069");
+
+                client1 = new Greeter.GreeterClient(channel);
+
                 streamingPlayerCall = client1.SendPlayerGameData();
                 requestPlayerStream = streamingPlayerCall.RequestStream;
                 responsePlayerStream = streamingPlayerCall.ResponseStream;
@@ -108,7 +114,15 @@ namespace ClientOne
                 {
                     Invoke((Action)(() =>
                     {
-                        ChatTextBox.Text += $"{message.Text}\r\n";
+                        oponnentGameData = new OponnentGameData
+                        {
+                            Position = message.Position,
+                            Text = message.Text,
+                            ClientPlayed = message.ClientPlayed
+                        };
+
+
+                        ProcessGameMessage(oponnentGameData);
                     }));
                 }
             });
@@ -144,6 +158,9 @@ namespace ClientOne
                         {
                             OpponentName = message.Nickname;
                             OpponentSymbol = message.ChosenSymbol;
+
+                            if (!string.IsNullOrEmpty(OpponentSymbol))
+                                DisableButton(FindButtonByName(string.Concat("Symbol", OpponentSymbol)));
                         }));
                     }
                 });
@@ -203,7 +220,13 @@ namespace ClientOne
 
         private async void SendButton_Click(object sender, EventArgs e)
         {
-            await SendChatInfoAsync(new PlayerChatInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, Message = MessageTextBox6.Text, FirstTime = false });
+            if (!string.IsNullOrEmpty(MessageTextBox6.Text))
+            {
+                await SendChatInfoAsync(new PlayerChatInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, Message = MessageTextBox6.Text, FirstTime = false });
+
+                ChatTextBox.Text += $"{user.Nickname + ": " + MessageTextBox6.Text}\r\n";
+                MessageTextBox6.Text = "";
+            }
         }
 
         private async Task SendMessageAsync(string message)
@@ -259,9 +282,9 @@ namespace ClientOne
 
             switch (messageType)
             {
-                case "GameMessage":
-                    ProcessGameMessage(receivedJson);
-                    break;
+                //case "GameMessage":
+                //    ProcessGameMessage(receivedJson);
+                //    break;
                 case "UserMessage":
                     ProcessUserMessage(receivedJson);
                     break;
@@ -277,11 +300,9 @@ namespace ClientOne
             recieve = "";
         }
 
-        private void ProcessGameMessage(JObject receivedMessage)
+        private void ProcessGameMessage(OponnentGameData oponnentGameData)
         {
-            GameMessage jsonGameMessage = receivedMessage.ToObject<GameMessage>();
-
-            switch (jsonGameMessage.Position)
+            switch (oponnentGameData.Position)
             {
                 case "SurrenderButton":
                     ReceivedSurrenderUser();
@@ -290,7 +311,7 @@ namespace ClientOne
                     ReceivedNewGameUser();
                     break;
                 default:
-                    SetBoardPosition(jsonGameMessage);
+                    SetBoardPosition(oponnentGameData);
                     break;
             }
         }
@@ -363,10 +384,8 @@ namespace ClientOne
                 foreach (Control control in Controls)
                 {
                     if (control is Button button && button.Name.Contains(item.Key))
-                    {
                         button.Enabled = item.Value;
-                        listItems.Remove(item.Key);
-                    }
+                    
                 }
             }
         }
@@ -393,14 +412,14 @@ namespace ClientOne
             }
         }
 
-        private void SetBoardPosition(GameMessage jsonGameMessage)
+        private void SetBoardPosition(OponnentGameData oponnentGameData)
         {
-            Button button = FindButtonByName(jsonGameMessage.Position);
+            Button button = FindButtonByName(oponnentGameData.Position);
 
             button.Text = OpponentSymbol;
             button.BackColor = Color.PaleGreen;
 
-            isValidMove = jsonGameMessage.ClientPlayed;
+            isValidMove = oponnentGameData.ClientPlayed;
             CheckScore();
 
             DisableButton(button);
@@ -629,6 +648,14 @@ namespace ClientOne
                 Position = "SurrenderButton"
             };
 
+            await SendGameDataRequestAsync(new PlayerGameDataRequest
+            {
+                Position = gameMessage.Position,
+                ClientId = clientId,
+                ClientIdToSend = clientIdToSend,
+                FirstTime = false
+            });
+
             statusChangeItems = new Dictionary<string, bool>
             {
                 { "NewGameButton" , true },
@@ -639,9 +666,7 @@ namespace ClientOne
             ChangeButtonsStatus(statusChangeItems);
             MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            await SendMoveAsync(gameMessage);
-
-            SendMessageAsync($"The winner is Player {OpponentName}");
+            //SendMessageAsync($"The winner is Player {OpponentName}");
         }
 
         private async void ReceivedSurrenderUser()
@@ -666,7 +691,13 @@ namespace ClientOne
                 Position = "NewGameButton"
             };
 
-            await SendMoveAsync(gameMessage);
+            await SendGameDataRequestAsync(new PlayerGameDataRequest
+            {
+                Position = gameMessage.Position,
+                ClientId = clientId,
+                ClientIdToSend = clientIdToSend,
+                FirstTime = false
+            });
 
             statusChangeItems = new Dictionary<string, bool>
             {
@@ -847,7 +878,15 @@ namespace ClientOne
 
                 isValidMove = false;
 
-                //await SendGameDataRequestAsync(new PlayerGameDataRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, Position = button.Name, FirstTime = false });
+                await SendGameDataRequestAsync(new PlayerGameDataRequest
+                {
+                    Position = gameMessage.Position,
+                    Text = gameMessage.Text,
+                    ClientPlayed = gameMessage.ClientPlayed,
+                    ClientId = clientId,
+                    ClientIdToSend = clientIdToSend,
+                    FirstTime = false
+                });
 
                 DisableButton(button);
 

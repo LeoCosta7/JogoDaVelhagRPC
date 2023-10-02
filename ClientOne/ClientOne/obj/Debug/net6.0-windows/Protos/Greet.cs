@@ -27,30 +27,30 @@ namespace ClientOne {
             "ChJQcm90b3MvZ3JlZXQucHJvdG8SBWdyZWV0ImUKFVBsYXllckNoYXRJbmZv",
             "UmVxdWVzdBIQCghDbGllbnRJZBgBIAEoCRIPCgdNZXNzYWdlGAIgASgJEhYK",
             "DkNsaWVudElkVG9TZW5kGAMgASgJEhEKCUZpcnN0VGltZRgFIAEoCCIpChZQ",
-            "bGF5ZXJDaGF0SW5mb1Jlc3BvbnNlEg8KB01lc3NhZ2UYAiABKAkiiAEKFVBs",
-            "YXllckdhbWVEYXRhUmVxdWVzdBIOCgZTeW1ib2wYASABKAkSDAoEVGV4dBgC",
-            "IAEoCRIUCgxDbGllbnRQbGF5ZWQYAyABKAkSEAoIQ2xpZW50SWQYBCABKAkS",
-            "FgoOQ2xpZW50SWRUb1NlbmQYBSABKAkSEQoJRmlyc3RUaW1lGAYgASgIIkwK",
-            "FlBsYXllckdhbWVEYXRhUmVzcG9uc2USDgoGU3ltYm9sGAEgASgJEgwKBFRl",
-            "eHQYAiABKAkSFAoMQ2xpZW50UGxheWVkGAMgASgJIngKEVBsYXllckluZm9S",
-            "ZXF1ZXN0EhAKCE5pY2tuYW1lGAEgASgJEhQKDENob3NlblN5bWJvbBgCIAEo",
-            "CRIQCghDbGllbnRJZBgDIAEoCRIWCg5DbGllbnRJZFRvU2VuZBgEIAEoCRIR",
-            "CglGaXJzdFRpbWUYBSABKAgiPAoSUGxheWVySW5mb1Jlc3BvbnNlEhAKCE5p",
-            "Y2tuYW1lGAEgASgJEhQKDENob3NlblN5bWJvbBgCIAEoCTKFAgoHR3JlZXRl",
-            "chJUChFTZW5kUGxheWVyTWVzc2FnZRIcLmdyZWV0LlBsYXllckNoYXRJbmZv",
-            "UmVxdWVzdBodLmdyZWV0LlBsYXllckNoYXRJbmZvUmVzcG9uc2UoATABElUK",
-            "ElNlbmRQbGF5ZXJHYW1lRGF0YRIcLmdyZWV0LlBsYXllckdhbWVEYXRhUmVx",
-            "dWVzdBodLmdyZWV0LlBsYXllckdhbWVEYXRhUmVzcG9uc2UoATABEk0KElNl",
-            "bmRQbGF5ZXJJbmZvRGF0YRIYLmdyZWV0LlBsYXllckluZm9SZXF1ZXN0Ghku",
-            "Z3JlZXQuUGxheWVySW5mb1Jlc3BvbnNlKAEwAUIMqgIJQ2xpZW50T25lYgZw",
-            "cm90bzM="));
+            "bGF5ZXJDaGF0SW5mb1Jlc3BvbnNlEg8KB01lc3NhZ2UYAiABKAkiigEKFVBs",
+            "YXllckdhbWVEYXRhUmVxdWVzdBIQCghQb3NpdGlvbhgBIAEoCRIMCgRUZXh0",
+            "GAIgASgJEhQKDENsaWVudFBsYXllZBgDIAEoCBIQCghDbGllbnRJZBgEIAEo",
+            "CRIWCg5DbGllbnRJZFRvU2VuZBgFIAEoCRIRCglGaXJzdFRpbWUYBiABKAgi",
+            "TgoWUGxheWVyR2FtZURhdGFSZXNwb25zZRIQCghQb3NpdGlvbhgBIAEoCRIM",
+            "CgRUZXh0GAIgASgJEhQKDENsaWVudFBsYXllZBgDIAEoCCJ4ChFQbGF5ZXJJ",
+            "bmZvUmVxdWVzdBIQCghOaWNrbmFtZRgBIAEoCRIUCgxDaG9zZW5TeW1ib2wY",
+            "AiABKAkSEAoIQ2xpZW50SWQYAyABKAkSFgoOQ2xpZW50SWRUb1NlbmQYBCAB",
+            "KAkSEQoJRmlyc3RUaW1lGAUgASgIIjwKElBsYXllckluZm9SZXNwb25zZRIQ",
+            "CghOaWNrbmFtZRgBIAEoCRIUCgxDaG9zZW5TeW1ib2wYAiABKAkyhQIKB0dy",
+            "ZWV0ZXISVAoRU2VuZFBsYXllck1lc3NhZ2USHC5ncmVldC5QbGF5ZXJDaGF0",
+            "SW5mb1JlcXVlc3QaHS5ncmVldC5QbGF5ZXJDaGF0SW5mb1Jlc3BvbnNlKAEw",
+            "ARJVChJTZW5kUGxheWVyR2FtZURhdGESHC5ncmVldC5QbGF5ZXJHYW1lRGF0",
+            "YVJlcXVlc3QaHS5ncmVldC5QbGF5ZXJHYW1lRGF0YVJlc3BvbnNlKAEwARJN",
+            "ChJTZW5kUGxheWVySW5mb0RhdGESGC5ncmVldC5QbGF5ZXJJbmZvUmVxdWVz",
+            "dBoZLmdyZWV0LlBsYXllckluZm9SZXNwb25zZSgBMAFCDKoCCUNsaWVudE9u",
+            "ZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerChatInfoRequest), global::ClientOne.PlayerChatInfoRequest.Parser, new[]{ "ClientId", "Message", "ClientIdToSend", "FirstTime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerChatInfoResponse), global::ClientOne.PlayerChatInfoResponse.Parser, new[]{ "Message" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerGameDataRequest), global::ClientOne.PlayerGameDataRequest.Parser, new[]{ "Symbol", "Text", "ClientPlayed", "ClientId", "ClientIdToSend", "FirstTime" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerGameDataResponse), global::ClientOne.PlayerGameDataResponse.Parser, new[]{ "Symbol", "Text", "ClientPlayed" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerGameDataRequest), global::ClientOne.PlayerGameDataRequest.Parser, new[]{ "Position", "Text", "ClientPlayed", "ClientId", "ClientIdToSend", "FirstTime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerGameDataResponse), global::ClientOne.PlayerGameDataResponse.Parser, new[]{ "Position", "Text", "ClientPlayed" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerInfoRequest), global::ClientOne.PlayerInfoRequest.Parser, new[]{ "Nickname", "ChosenSymbol", "ClientId", "ClientIdToSend", "FirstTime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::ClientOne.PlayerInfoResponse), global::ClientOne.PlayerInfoResponse.Parser, new[]{ "Nickname", "ChosenSymbol" }, null, null, null, null)
           }));
@@ -582,7 +582,7 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PlayerGameDataRequest(PlayerGameDataRequest other) : this() {
-      symbol_ = other.symbol_;
+      position_ = other.position_;
       text_ = other.text_;
       clientPlayed_ = other.clientPlayed_;
       clientId_ = other.clientId_;
@@ -597,15 +597,15 @@ namespace ClientOne {
       return new PlayerGameDataRequest(this);
     }
 
-    /// <summary>Field number for the "Symbol" field.</summary>
-    public const int SymbolFieldNumber = 1;
-    private string symbol_ = "";
+    /// <summary>Field number for the "Position" field.</summary>
+    public const int PositionFieldNumber = 1;
+    private string position_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Symbol {
-      get { return symbol_; }
+    public string Position {
+      get { return position_; }
       set {
-        symbol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        position_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -623,13 +623,13 @@ namespace ClientOne {
 
     /// <summary>Field number for the "ClientPlayed" field.</summary>
     public const int ClientPlayedFieldNumber = 3;
-    private string clientPlayed_ = "";
+    private bool clientPlayed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ClientPlayed {
+    public bool ClientPlayed {
       get { return clientPlayed_; }
       set {
-        clientPlayed_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        clientPlayed_ = value;
       }
     }
 
@@ -684,7 +684,7 @@ namespace ClientOne {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Symbol != other.Symbol) return false;
+      if (Position != other.Position) return false;
       if (Text != other.Text) return false;
       if (ClientPlayed != other.ClientPlayed) return false;
       if (ClientId != other.ClientId) return false;
@@ -697,9 +697,9 @@ namespace ClientOne {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
+      if (Position.Length != 0) hash ^= Position.GetHashCode();
       if (Text.Length != 0) hash ^= Text.GetHashCode();
-      if (ClientPlayed.Length != 0) hash ^= ClientPlayed.GetHashCode();
+      if (ClientPlayed != false) hash ^= ClientPlayed.GetHashCode();
       if (ClientId.Length != 0) hash ^= ClientId.GetHashCode();
       if (ClientIdToSend.Length != 0) hash ^= ClientIdToSend.GetHashCode();
       if (FirstTime != false) hash ^= FirstTime.GetHashCode();
@@ -721,17 +721,17 @@ namespace ClientOne {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Symbol.Length != 0) {
+      if (Position.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Symbol);
+        output.WriteString(Position);
       }
       if (Text.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Text);
       }
-      if (ClientPlayed.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(ClientPlayed);
+      if (ClientPlayed != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(ClientPlayed);
       }
       if (ClientId.Length != 0) {
         output.WriteRawTag(34);
@@ -755,17 +755,17 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Symbol.Length != 0) {
+      if (Position.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Symbol);
+        output.WriteString(Position);
       }
       if (Text.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Text);
       }
-      if (ClientPlayed.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(ClientPlayed);
+      if (ClientPlayed != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(ClientPlayed);
       }
       if (ClientId.Length != 0) {
         output.WriteRawTag(34);
@@ -789,14 +789,14 @@ namespace ClientOne {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Symbol.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Symbol);
+      if (Position.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Position);
       }
       if (Text.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
       }
-      if (ClientPlayed.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientPlayed);
+      if (ClientPlayed != false) {
+        size += 1 + 1;
       }
       if (ClientId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientId);
@@ -819,13 +819,13 @@ namespace ClientOne {
       if (other == null) {
         return;
       }
-      if (other.Symbol.Length != 0) {
-        Symbol = other.Symbol;
+      if (other.Position.Length != 0) {
+        Position = other.Position;
       }
       if (other.Text.Length != 0) {
         Text = other.Text;
       }
-      if (other.ClientPlayed.Length != 0) {
+      if (other.ClientPlayed != false) {
         ClientPlayed = other.ClientPlayed;
       }
       if (other.ClientId.Length != 0) {
@@ -853,15 +853,15 @@ namespace ClientOne {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Symbol = input.ReadString();
+            Position = input.ReadString();
             break;
           }
           case 18: {
             Text = input.ReadString();
             break;
           }
-          case 26: {
-            ClientPlayed = input.ReadString();
+          case 24: {
+            ClientPlayed = input.ReadBool();
             break;
           }
           case 34: {
@@ -892,15 +892,15 @@ namespace ClientOne {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Symbol = input.ReadString();
+            Position = input.ReadString();
             break;
           }
           case 18: {
             Text = input.ReadString();
             break;
           }
-          case 26: {
-            ClientPlayed = input.ReadString();
+          case 24: {
+            ClientPlayed = input.ReadBool();
             break;
           }
           case 34: {
@@ -956,7 +956,7 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public PlayerGameDataResponse(PlayerGameDataResponse other) : this() {
-      symbol_ = other.symbol_;
+      position_ = other.position_;
       text_ = other.text_;
       clientPlayed_ = other.clientPlayed_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -968,15 +968,15 @@ namespace ClientOne {
       return new PlayerGameDataResponse(this);
     }
 
-    /// <summary>Field number for the "Symbol" field.</summary>
-    public const int SymbolFieldNumber = 1;
-    private string symbol_ = "";
+    /// <summary>Field number for the "Position" field.</summary>
+    public const int PositionFieldNumber = 1;
+    private string position_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string Symbol {
-      get { return symbol_; }
+    public string Position {
+      get { return position_; }
       set {
-        symbol_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        position_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -994,13 +994,13 @@ namespace ClientOne {
 
     /// <summary>Field number for the "ClientPlayed" field.</summary>
     public const int ClientPlayedFieldNumber = 3;
-    private string clientPlayed_ = "";
+    private bool clientPlayed_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ClientPlayed {
+    public bool ClientPlayed {
       get { return clientPlayed_; }
       set {
-        clientPlayed_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        clientPlayed_ = value;
       }
     }
 
@@ -1019,7 +1019,7 @@ namespace ClientOne {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Symbol != other.Symbol) return false;
+      if (Position != other.Position) return false;
       if (Text != other.Text) return false;
       if (ClientPlayed != other.ClientPlayed) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1029,9 +1029,9 @@ namespace ClientOne {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (Symbol.Length != 0) hash ^= Symbol.GetHashCode();
+      if (Position.Length != 0) hash ^= Position.GetHashCode();
       if (Text.Length != 0) hash ^= Text.GetHashCode();
-      if (ClientPlayed.Length != 0) hash ^= ClientPlayed.GetHashCode();
+      if (ClientPlayed != false) hash ^= ClientPlayed.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1050,17 +1050,17 @@ namespace ClientOne {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (Symbol.Length != 0) {
+      if (Position.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Symbol);
+        output.WriteString(Position);
       }
       if (Text.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Text);
       }
-      if (ClientPlayed.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(ClientPlayed);
+      if (ClientPlayed != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(ClientPlayed);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1072,17 +1072,17 @@ namespace ClientOne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Symbol.Length != 0) {
+      if (Position.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Symbol);
+        output.WriteString(Position);
       }
       if (Text.Length != 0) {
         output.WriteRawTag(18);
         output.WriteString(Text);
       }
-      if (ClientPlayed.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(ClientPlayed);
+      if (ClientPlayed != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(ClientPlayed);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1094,14 +1094,14 @@ namespace ClientOne {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (Symbol.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Symbol);
+      if (Position.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Position);
       }
       if (Text.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
       }
-      if (ClientPlayed.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ClientPlayed);
+      if (ClientPlayed != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1115,13 +1115,13 @@ namespace ClientOne {
       if (other == null) {
         return;
       }
-      if (other.Symbol.Length != 0) {
-        Symbol = other.Symbol;
+      if (other.Position.Length != 0) {
+        Position = other.Position;
       }
       if (other.Text.Length != 0) {
         Text = other.Text;
       }
-      if (other.ClientPlayed.Length != 0) {
+      if (other.ClientPlayed != false) {
         ClientPlayed = other.ClientPlayed;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -1140,15 +1140,15 @@ namespace ClientOne {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Symbol = input.ReadString();
+            Position = input.ReadString();
             break;
           }
           case 18: {
             Text = input.ReadString();
             break;
           }
-          case 26: {
-            ClientPlayed = input.ReadString();
+          case 24: {
+            ClientPlayed = input.ReadBool();
             break;
           }
         }
@@ -1167,15 +1167,15 @@ namespace ClientOne {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            Symbol = input.ReadString();
+            Position = input.ReadString();
             break;
           }
           case 18: {
             Text = input.ReadString();
             break;
           }
-          case 26: {
-            ClientPlayed = input.ReadString();
+          case 24: {
+            ClientPlayed = input.ReadBool();
             break;
           }
         }
