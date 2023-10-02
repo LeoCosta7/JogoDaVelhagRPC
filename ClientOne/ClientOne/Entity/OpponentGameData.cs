@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientOne.Entity
 {
-    public class OponnentGameData
+    public class OpponentGameData
     {
         public string Position { get; set; }
 

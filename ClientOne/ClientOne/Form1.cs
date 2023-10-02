@@ -38,7 +38,8 @@ namespace ClientOne
         private bool isValidMove = true;
         Button symbolButton;
         GameMessage gameMessage;
-        OponnentGameData oponnentGameData;
+        OpponentGameData opponentGameData;
+        OpponentUser opponnentUser;
         User user;
         string OpponentName = null, OpponentSymbol = null;
         Dictionary<string, bool> statusChangeItems;
@@ -114,7 +115,7 @@ namespace ClientOne
                 {
                     Invoke((Action)(() =>
                     {
-                        oponnentGameData = new OponnentGameData
+                        opponentGameData = new OpponentGameData
                         {
                             Position = message.Position,
                             Text = message.Text,
@@ -122,7 +123,7 @@ namespace ClientOne
                         };
 
 
-                        ProcessGameMessage(oponnentGameData);
+                        ProcessGameMessage(opponentGameData);
                     }));
                 }
             });
@@ -138,7 +139,7 @@ namespace ClientOne
                 {                    
                     Invoke((Action)(() =>
                     {
-                        ChatTextBox.Text += $"{OpponentName + ": " + message.Message}\r\n";
+                        ChatTextBox.Text += $"{opponnentUser.Nickname + ": " + message.Message}\r\n";
                     }));
                 }
             });
@@ -156,11 +157,16 @@ namespace ClientOne
                     {
                         Invoke((Action)(() =>
                         {
+                            opponnentUser = new OpponentUser
+                            {
+                                Nickname = message.Nickname,
+                                ChosenSymbol = message.ChosenSymbol
+                            };
                             OpponentName = message.Nickname;
                             OpponentSymbol = message.ChosenSymbol;
 
-                            if (!string.IsNullOrEmpty(OpponentSymbol))
-                                DisableButton(FindButtonByName(string.Concat("Symbol", OpponentSymbol)));
+                            if (!string.IsNullOrEmpty(opponnentUser.ChosenSymbol))
+                                DisableButton(FindButtonByName(string.Concat("Symbol", opponnentUser.ChosenSymbol)));
                         }));
                     }
                 });
@@ -300,7 +306,7 @@ namespace ClientOne
             recieve = "";
         }
 
-        private void ProcessGameMessage(OponnentGameData oponnentGameData)
+        private void ProcessGameMessage(OpponentGameData oponnentGameData)
         {
             switch (oponnentGameData.Position)
             {
@@ -412,11 +418,11 @@ namespace ClientOne
             }
         }
 
-        private void SetBoardPosition(OponnentGameData oponnentGameData)
+        private void SetBoardPosition(OpponentGameData oponnentGameData)
         {
             Button button = FindButtonByName(oponnentGameData.Position);
 
-            button.Text = OpponentSymbol;
+            button.Text = opponnentUser.ChosenSymbol;
             button.BackColor = Color.PaleGreen;
 
             isValidMove = oponnentGameData.ClientPlayed;
@@ -612,7 +618,7 @@ namespace ClientOne
 
             if (winner)
             {
-                MarkWinnerBoard(btn1, btn2, btn3, isValidMove ? OpponentName : user.Nickname);          //True = o adversário acabou de jogar; False = o player atual acabou de fazer uma jogada e chamou o método.
+                MarkWinnerBoard(btn1, btn2, btn3, isValidMove ? opponnentUser.Nickname : user.Nickname);          //True = o adversário acabou de jogar; False = o player atual acabou de fazer uma jogada e chamou o método.
             }
 
             return winner;
