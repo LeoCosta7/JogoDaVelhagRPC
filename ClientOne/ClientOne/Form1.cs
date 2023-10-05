@@ -13,7 +13,7 @@ namespace ClientOne
     public partial class Form1 : Form
     {
         private GrpcChannel channel;
-        private Greeter.GreeterClient client1;
+        private Greeter.GreeterClient client;
 
         public AsyncDuplexStreamingCall<PlayerChatInfoRequest, PlayerChatInfoResponse> streamingCall;
         public IAsyncStreamWriter<PlayerChatInfoRequest> requestStream;
@@ -30,18 +30,12 @@ namespace ClientOne
         private string clientId = "11111";
         private string clientIdToSend = "0000";
 
-        private Socket client;
-        public StreamReader STR;
-        public StreamWriter STW;
-        public string recieve;
-        public string TextToSend;
         private bool isValidMove = true;
         Button symbolButton;
         GameMessage gameMessage;
         OpponentGameData opponentGameData;
         OpponentUser opponnentUser;
         User user;
-        string OpponentName = null, OpponentSymbol = null;
         Dictionary<string, bool> statusChangeItems;
 
         public Form1()
@@ -79,17 +73,17 @@ namespace ClientOne
 
                 channel = GrpcChannel.ForAddress("https://localhost:7069");
 
-                client1 = new Greeter.GreeterClient(channel);
+                client = new Greeter.GreeterClient(channel);
 
-                streamingPlayerCall = client1.SendPlayerGameData();
+                streamingPlayerCall = client.SendPlayerGameData();
                 requestPlayerStream = streamingPlayerCall.RequestStream;
                 responsePlayerStream = streamingPlayerCall.ResponseStream;
 
-                streamingCall = client1.SendPlayerMessage();
+                streamingCall = client.SendPlayerMessage();
                 requestStream = streamingCall.RequestStream;
                 responseStream = streamingCall.ResponseStream;
 
-                streamingPlayerInfoCall = client1.SendPlayerInfoData();
+                streamingPlayerInfoCall = client.SendPlayerInfoData();
                 requestPlayerInfoStream = streamingPlayerInfoCall.RequestStream;
                 responsePlayerInfoStream = streamingPlayerInfoCall.ResponseStream;
                 ChangeButtonsStatus(statusChangeItems = new Dictionary<string, bool> { { "Symbol", true } });
@@ -162,8 +156,6 @@ namespace ClientOne
                                 Nickname = message.Nickname,
                                 ChosenSymbol = message.ChosenSymbol
                             };
-                            OpponentName = message.Nickname;
-                            OpponentSymbol = message.ChosenSymbol;
 
                             if (!string.IsNullOrEmpty(opponnentUser.ChosenSymbol))
                                 DisableButton(FindButtonByName(string.Concat("Symbol", opponnentUser.ChosenSymbol)));
@@ -179,51 +171,6 @@ namespace ClientOne
             }
         }
 
-
-
-        private async Task StartServerAsync(IPAddress ip, int port)
-        {
-            try
-            {
-                try
-                {
-                    Socket listenerSocket = new Socket(ip.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                    listenerSocket.Bind(new IPEndPoint(ip, port));
-                    listenerSocket.Listen(1);
-
-                    ChangeButtonsStatus(statusChangeItems = new Dictionary<string, bool> { { "Symbol", true } });
-
-                    client = await listenerSocket.AcceptAsync();
-
-                    ChatTextBox.AppendText("Connect to ClientTwo" + Environment.NewLine);
-                    STR = new StreamReader(new NetworkStream(client));
-                    STW = new StreamWriter(new NetworkStream(client));
-                    STW.AutoFlush = true;
-
-                    await ProcessReceivedMessagesAsync();
-                }
-                catch
-                {
-                    client = new Socket(ip.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                    IPEndPoint endPoint = new IPEndPoint(ip, port);
-                    await client.ConnectAsync(endPoint);
-
-                    ChangeButtonsStatus(statusChangeItems = new Dictionary<string, bool> { { "Symbol", true } });
-
-                    ChatTextBox.AppendText("Connect to ClientTwo" + Environment.NewLine);
-                    STR = new StreamReader(new NetworkStream(client));
-                    STW = new StreamWriter(new NetworkStream(client));
-                    STW.AutoFlush = true;
-
-                    await ProcessReceivedMessagesAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error during server initialization: " + ex.Message);
-            }
-        }
-
         private async void SendButton_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(MessageTextBox6.Text))
@@ -233,77 +180,6 @@ namespace ClientOne
                 ChatTextBox.Text += $"{user.Nickname + ": " + MessageTextBox6.Text}\r\n";
                 MessageTextBox6.Text = "";
             }
-        }
-
-        private async Task SendMessageAsync(string message)
-        {
-            try
-            {
-                await STW.WriteLineAsync($"{message}");
-                this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
-                {
-                    ChatTextBox.AppendText(user.Nickname + ": " + message + Environment.NewLine);
-                }));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error during sending message: " + ex.Message);
-            }
-        }
-
-        private async Task ProcessReceivedMessagesAsync()
-        {
-            while (client.Connected)
-            {
-                try
-                {
-                    recieve = await STR.ReadLineAsync();
-
-                    if (IsValidateJson(recieve))
-                    {
-                        ProcessReceivedJsonMessage(recieve);
-                    }
-                    else
-                    {
-                        ProcessReceivedNonJsonMessage(recieve);
-                    }
-
-                }
-                catch (IOException ex)
-                {
-                    HandleDisconnection();
-                    break;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
-            }
-        }
-
-        private void ProcessReceivedJsonMessage(string jsonMessage)
-        {
-            JObject receivedJson = JObject.Parse(recieve);
-            string messageType = receivedJson["MessageType"].ToString();
-
-            switch (messageType)
-            {
-                //case "GameMessage":
-                //    ProcessGameMessage(receivedJson);
-                //    break;
-                case "UserMessage":
-                    ProcessUserMessage(receivedJson);
-                    break;
-            }
-        }
-
-        private void ProcessReceivedNonJsonMessage(string message)
-        {
-            this.ChatTextBox.Invoke(new MethodInvoker(delegate ()
-            {
-                ChatTextBox.AppendText(OpponentName + ": " + message + Environment.NewLine);
-            }));
-            recieve = "";
         }
 
         private void ProcessGameMessage(OpponentGameData oponnentGameData)
@@ -319,61 +195,6 @@ namespace ClientOne
                 default:
                     SetBoardPosition(oponnentGameData);
                     break;
-            }
-        }
-
-        private void ProcessUserMessage(JObject jsonUserMessage)
-        {
-            User receiceMessage = JsonConvert.DeserializeObject<User>(recieve);
-
-            OpponentName = receiceMessage.Nickname;
-            OpponentSymbol = receiceMessage.ChosenSymbol;
-
-            DisableButton(FindButtonByName(string.Concat("Symbol", OpponentSymbol)));
-        }
-
-        private bool IsValidateJson(string input)
-        {
-            try
-            {
-                JToken.Parse(recieve);
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private void HandleDisconnection()
-        {
-            try
-            {
-                // Fechar os fluxos e o socket
-                STR.Close();
-                STW.Close();
-                client.Close();
-
-                isValidMove = false;
-
-                statusChangeItems = new Dictionary<string, bool>
-                {
-                    { "btnTic", false },
-                    { "Symbol" , false },
-                    { "SurrenderButton" , false},
-                    { "Send" , false},
-                    { "NewGameButton" , false}
-                };
-
-                ChangeButtonsStatus(statusChangeItems);
-                ResetButtonsToNewGame("", "btnTic");
-
-                MessageBox.Show("Disconnected from the server.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error during disconnection: " + ex.Message);
             }
         }
 
@@ -443,30 +264,6 @@ namespace ClientOne
             return null;
         }
 
-        private async Task SendMoveAsync(IMessageType message)
-        {
-            string jsonMessage = null;
-
-            try
-            {
-                if (message.MessageType == "GameMessage")
-                {
-                    jsonMessage = JsonConvert.SerializeObject(gameMessage);
-                }
-                else if (message.MessageType == "UserMessage")
-                {
-                    jsonMessage = JsonConvert.SerializeObject(user);
-                }
-
-                await STW.WriteLineAsync(jsonMessage);
-                await STW.FlushAsync();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error during sending message: " + ex.Message);
-            }
-        }
-
         private async void Symbol_Click(object sender, EventArgs e)
         {
             try
@@ -482,7 +279,7 @@ namespace ClientOne
                     };
                 }                
 
-                if (ValidateUserNickName() && ValidateChosenSymbol())
+                if (ValidateUserNickName())
                 {
                     statusChangeItems = new Dictionary<string, bool>
                 {
@@ -508,16 +305,6 @@ namespace ClientOne
             if (string.IsNullOrEmpty(NickName.Text))
             {
                 MessageBox.Show("Insert Nickname");
-                return false;
-            }
-            return true;
-        }
-
-        private bool ValidateChosenSymbol()
-        {
-            if (string.IsNullOrEmpty(symbolButton.Text))
-            {
-                MessageBox.Show("Pick a symbol");
                 return false;
             }
             return true;
@@ -687,7 +474,7 @@ namespace ClientOne
             ChangeButtonsStatus(statusChangeItems);
             MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            await SendMessageAsync($"The winner is Player {user.Nickname}");
+            //await SendMessageAsync($"The winner is Player {user.Nickname}");
         }
 
         private async void NewGameButton_Click(object sender, EventArgs e)
