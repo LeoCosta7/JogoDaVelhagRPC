@@ -87,3 +87,28 @@ C:\Users\Nameless\Desktop\Migrando Comunicação\Mapemento Funcioando assincrono
 C:\Users\Nameless\Desktop\Migrando Comunicação\Mapemento Funcioando assincrono\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.pdb
 C:\Users\Nameless\Desktop\Migrando Comunicação\Mapemento Funcioando assincrono\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.genruntimeconfig.cache
 C:\Users\Nameless\Desktop\Migrando Comunicação\Mapemento Funcioando assincrono\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ref\ClientTwo.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\ClientTwo.exe
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\ClientTwo.deps.json
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\ClientTwo.runtimeconfig.json
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\ClientTwo.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\ClientTwo.pdb
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\Grpc.Core.Api.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\Grpc.Net.Client.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\Grpc.Net.Common.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.csproj.AssemblyReference.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.Form1.resources
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.Properties.Resources.resources
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.csproj.GenerateResource.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.AssemblyInfoInputs.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.AssemblyInfo.cs
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.csproj.CoreCompileInputs.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.csproj.CopyComplete
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\refint\ClientTwo.dll
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.pdb
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ClientTwo.genruntimeconfig.cache
+C:\Users\Nameless\Documents\Github\JogoDaVelhagRPC\ClientTwo\ClientTwo\obj\Debug\net6.0-windows\ref\ClientTwo.dll
