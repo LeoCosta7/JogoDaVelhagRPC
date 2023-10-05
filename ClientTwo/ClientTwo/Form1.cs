@@ -31,12 +31,10 @@ namespace ClientTwo
         private string clientIdToSend = "11111";
 
         private bool isValidMove = true;
-        Button symbolButton;
         GameMessage gameMessage;
         OpponentGameData opponentGameData;
         OpponentUser opponentUser;
         User user;
-        Dictionary<string, bool> statusChangeItems;
 
         public Form1()
         {
@@ -52,16 +50,14 @@ namespace ClientTwo
                 }
             }
 
-            statusChangeItems = new Dictionary<string, bool>
+            ChangeButtonsStatus(new Dictionary<string, bool>
             {
                 {"btnTic",  false},
                 {"Symbol" , false},
                 {"SurrenderButton" , false},
                 {"Send" , true},
                 {"NewGameButton" , false},
-            };
-
-            ChangeButtonsStatus(statusChangeItems);
+            });
         }
 
         private async void StartButton_Click(object sender, EventArgs e)
@@ -84,7 +80,7 @@ namespace ClientTwo
                 requestPlayerInfoStream = streamingPlayerInfoCall.RequestStream;
                 responsePlayerInfoStream = streamingPlayerInfoCall.ResponseStream;
 
-                ChangeButtonsStatus(statusChangeItems = new Dictionary<string, bool> { { "Symbol", true } });
+                ChangeButtonsStatus(new Dictionary<string, bool> { ["Symbol"] = true });
 
                 await SendGameDataRequestAsync(new PlayerGameDataRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
                 await SendChatInfoAsync(new PlayerChatInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, FirstTime = true });
@@ -256,7 +252,7 @@ namespace ClientTwo
         {
             try
             {
-                symbolButton = (Button)sender;
+                Button symbolButton = (Button)sender;
 
                 if (symbolButton == SymbolX || symbolButton == SymbolO)
                 {
@@ -269,15 +265,14 @@ namespace ClientTwo
 
                 if (ValidateUserNickName())
                 {
-                    statusChangeItems = new Dictionary<string, bool>
-                {
-                    {  "btnTic", true },
-                    { "SurrenderButton" , true },
-                    { "Send" , true },
-                    { "Symbol" , false },
-                };
 
-                    ChangeButtonsStatus(statusChangeItems);
+                    ChangeButtonsStatus(new Dictionary <string, bool>
+                    {
+                        {  "btnTic", true },
+                        { "SurrenderButton" , true },
+                        { "Send" , true },
+                        { "Symbol" , false },
+                    });
 
                     await SendPlayerInfoAsync(new PlayerInfoRequest { ClientId = clientId, ClientIdToSend = clientIdToSend, Nickname = user.Nickname, ChosenSymbol = user.ChosenSymbol, FirstTime = false });
                 }
@@ -371,13 +366,12 @@ namespace ClientTwo
                 }
                 else if (isDraw())
                 {
-                    statusChangeItems = new Dictionary<string, bool>
+                    ChangeButtonsStatus(new Dictionary<string, bool>
                     {
                         { "btnTic" , false },
                         { "NewGameButton" , true },
                         { "SurrenderButton" , false },
-                    };
-                    ChangeButtonsStatus(statusChangeItems);
+                    });
 
                     MessageBox.Show($"EMPATE");
                 }
@@ -411,14 +405,12 @@ namespace ClientTwo
             btn2.BackColor = Color.Aqua;
             btn3.BackColor = Color.Aqua;
 
-            statusChangeItems = new Dictionary<string, bool>
+            ChangeButtonsStatus(new Dictionary<string, bool>
             {
                 { "btnTic" , false },
                 { "NewGameButton" , true },
-                { "SurrenderButton" , false },
-            };
-
-            ChangeButtonsStatus(statusChangeItems);
+                { "SurrenderButton" , false }
+            });
 
             MessageBox.Show($"The winner is Player {winner}", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -430,14 +422,12 @@ namespace ClientTwo
                 Position = "SurrenderButton"
             };
 
-            statusChangeItems = new Dictionary<string, bool>
+            ChangeButtonsStatus(new Dictionary<string, bool>
             {
                 { "NewGameButton" , true },
                 { "btnTic" , false },
-                { "SurrenderButton" , false },
-            };
-
-            ChangeButtonsStatus(statusChangeItems);
+                { "SurrenderButton" , false }
+            });
             MessageBox.Show($"You surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             await SendGameDataRequestAsync(new PlayerGameDataRequest
@@ -453,14 +443,12 @@ namespace ClientTwo
 
         private async void ReceivedSurrenderUser()
         {
-            statusChangeItems = new Dictionary<string, bool>
+            ChangeButtonsStatus(new Dictionary<string, bool>
             {
                 { "NewGameButton", true },
                 { "btnTic", false },
                 { "SurrenderButton", false },
-            };
-
-            ChangeButtonsStatus(statusChangeItems);
+            });
             MessageBox.Show($"Opponent surrendered", "TicTacToe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //await SendMessageAsync($"The winner is Player {user.Nickname}");
@@ -481,28 +469,26 @@ namespace ClientTwo
                 FirstTime = false
             });
 
-            statusChangeItems = new Dictionary<string, bool>
+            ChangeButtonsStatus(new Dictionary<string, bool>
             {
                 { "btnTic" , true },
                 { "NewGameButton" , false },
                 { "SurrenderButton", true },
-            };
+            });
 
-            ChangeButtonsStatus(statusChangeItems);
             ResetButtonsToNewGame("", "btnTic");
             isValidMove = true;
         }
 
         private void ReceivedNewGameUser()
         {
-            statusChangeItems = new Dictionary<string, bool>
+            ChangeButtonsStatus(new Dictionary<string, bool>
             {
                 { "btnTic", true },
                 { "NewGameButton", false },
                 { "SurrenderButton", true },
-            };
+            });
 
-            ChangeButtonsStatus(statusChangeItems);
             ResetButtonsToNewGame("", "btnTic");
 
             isValidMove = true;
