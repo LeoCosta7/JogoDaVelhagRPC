@@ -125,7 +125,11 @@ namespace ClientTwo
                 {                   
                     Invoke((Action)(() =>
                     {
-                        ChatTextBox.Text += $"{opponentUser.Nickname + ": " + message.Message}\r\n";
+                        if (opponentUser != null)
+                            ChatTextBox.Text += $"{opponentUser.Nickname + ": " + message.Message}\r\n";
+                        else
+                            ChatTextBox.Text += $"{message.Message}\r\n";
+
                     }));
                 }
             });

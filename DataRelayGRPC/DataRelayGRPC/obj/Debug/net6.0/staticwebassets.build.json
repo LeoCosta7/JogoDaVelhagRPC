@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HC6IO0wJRj5x9FVYVsULKmtQF/kbJKxw4cgM2HebuUA=",
+  "Source": "DataRelayGRPC",
+  "BasePath": "_content/DataRelayGRPC",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
