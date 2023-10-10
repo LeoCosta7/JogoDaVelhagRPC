@@ -23,11 +23,9 @@ namespace DataRelayGRPC.Services
             {
                 await foreach (var msg in request.ReadAllAsync())
                 {
+                    connectedPlayersGameData[msg.ClientId] = responseStream;
                     clientIdAux = msg.ClientId;
-                    
-                    if(msg.FirstTime)
-                        connectedPlayersGameData[msg.ClientId] = responseStream;
-                    
+
                     if (connectedPlayersGameData.TryGetValue(msg.ClientIdToSend, out var recipientStreamObject) && msg.FirstTime != true)
                     {
                         if (recipientStreamObject is IServerStreamWriter<PlayerGameDataResponse> recipientStream)
@@ -49,10 +47,8 @@ namespace DataRelayGRPC.Services
             {
                 await foreach (var clientInfo in requestStream.ReadAllAsync())
                 {
+                    connectedClientsChat[clientInfo.ClientId] = responseStream;
                     clientIdAux = clientInfo.ClientId;
-
-                    if (clientInfo.FirstTime)
-                        connectedClientsChat[clientInfo.ClientId] = responseStream;
 
                     if (connectedClientsChat.TryGetValue(clientInfo.ClientIdToSend, out var recipientStreamObject) && clientInfo.FirstTime != true)
                     {
@@ -78,10 +74,9 @@ namespace DataRelayGRPC.Services
             {
                 await foreach (var msg in requestStream.ReadAllAsync())
                 {
+                    connectedPlayersInfo[msg.ClientId] = responseStream;
+
                     clientIdAux = msg.ClientId;
-                    
-                    if (msg.FirstTime)
-                        connectedPlayersInfo[msg.ClientId] = responseStream;
 
                     if (connectedPlayersInfo.TryGetValue(msg.ClientIdToSend, out var recipientStreamObject) && msg.FirstTime != true)
                     {

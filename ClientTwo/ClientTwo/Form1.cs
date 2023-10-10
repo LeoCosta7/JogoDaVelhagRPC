@@ -95,67 +95,88 @@ namespace ClientTwo
 
         public async Task SendGameDataRequestAsync(PlayerGameDataRequest data)
         {
-            Task.Run(async () =>
+            try
             {
-                await foreach (var message in responsePlayerStream.ReadAllAsync())
+                Task.Run(async () =>
                 {
-                    Invoke((Action)(() =>
+                    await foreach (var message in responsePlayerStream.ReadAllAsync())
                     {
-                        opponentGameData = new OpponentGameData
+                        Invoke((Action)(() =>
                         {
-                            Position = message.Position,
-                            Text = message.Text,
-                            ClientPlayed = message.ClientPlayed
-                        };
+                            opponentGameData = new OpponentGameData
+                            {
+                                Position = message.Position,
+                                Text = message.Text,
+                                ClientPlayed = message.ClientPlayed
+                            };
 
 
-                        ProcessGameMessage(opponentGameData);
-                    }));
-                }
-            });
+                            ProcessGameMessage(opponentGameData);
+                        }));
+                    }
+                });
+            }
+            catch
+            {
+                MessageBox.Show("Client disconnect");
+            }
 
             await requestPlayerStream.WriteAsync(data);
         }
 
         public async Task SendChatInfoAsync(PlayerChatInfoRequest data)
         {
-            Task.Run(async () =>
+            try
             {
-                await foreach (var message in responseStream.ReadAllAsync()) 
-                {                   
-                    Invoke((Action)(() =>
+                Task.Run(async () =>
+                {
+                    await foreach (var message in responseStream.ReadAllAsync())
                     {
-                        if (opponentUser != null)
-                            ChatTextBox.Text += $"{opponentUser.Nickname + ": " + message.Message}\r\n";
-                        else
-                            ChatTextBox.Text += $"{message.Message}\r\n";
+                        Invoke((Action)(() =>
+                        {
+                            if (opponentUser != null)
+                                ChatTextBox.Text += $"{opponentUser.Nickname + ": " + message.Message}\r\n";
+                            else
+                                ChatTextBox.Text += $"{message.Message}\r\n";
 
-                    }));
-                }
-            });
+                        }));
+                    }
+                });
+            }
+            catch
+            {
+                MessageBox.Show("Client disconnect");
+            }            
 
             await requestStream.WriteAsync(data);
         }
 
         public async Task SendPlayerInfoAsync(PlayerInfoRequest data)
         {
-            Task.Run(async () =>
+            try
             {
-                await foreach (var message in responsePlayerInfoStream.ReadAllAsync())
+                Task.Run(async () =>
                 {
-                    Invoke((Action)(() =>
+                    await foreach (var message in responsePlayerInfoStream.ReadAllAsync())
                     {
-                        opponentUser = new OpponentUser
+                        Invoke((Action)(() =>
                         {
-                            Nickname = message.Nickname,
-                            ChosenSymbol = message.ChosenSymbol
-                        };
+                            opponentUser = new OpponentUser
+                            {
+                                Nickname = message.Nickname,
+                                ChosenSymbol = message.ChosenSymbol
+                            };
 
-                        if (!string.IsNullOrEmpty(opponentUser.ChosenSymbol))
-                            DisableButton(FindButtonByName(string.Concat("Symbol", opponentUser.ChosenSymbol)));
-                    }));
-                }
-            });          
+                            if (!string.IsNullOrEmpty(opponentUser.ChosenSymbol))
+                                DisableButton(FindButtonByName(string.Concat("Symbol", opponentUser.ChosenSymbol)));
+                        }));
+                    }
+                });
+            } 
+            catch
+            {
+                MessageBox.Show("Client disconnect");
+            }                    
 
             await requestPlayerInfoStream.WriteAsync(data);
         }        
