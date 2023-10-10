@@ -1,13 +1,9 @@
 using ClientTwo.DTO;
-using ClientTwo.DTO.Interface;
 using ClientTwo.Entity;
 using Grpc.Core;
 using Grpc.Net.Client;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Windows.Forms;
 
 namespace ClientTwo
 {
@@ -29,10 +25,8 @@ namespace ClientTwo
 
         private string clientId = "0000";
         private string clientIdToSend = "11111";
-
         private bool isValidMove = true;
-        GameMessage gameMessage;
-        OpponentGameData opponentGameData;
+
         OpponentUser opponentUser;
         User user;
 
@@ -55,7 +49,7 @@ namespace ClientTwo
                 {"btnTic",  false},
                 {"Symbol" , false},
                 {"SurrenderButton" , false},
-                {"Send" , true},
+                {"Send" , false},
                 {"NewGameButton" , false},
             });
         }
@@ -65,7 +59,7 @@ namespace ClientTwo
             try
             {
                 string address = $"http://{ServerIPtextBox.Text}:{ServerPortTextBox.Text}";
-                channel = GrpcChannel.ForAddress("https://localhost:7069");
+                channel = GrpcChannel.ForAddress(address);
                 client = new Greeter.GreeterClient(channel);
 
                 streamingPlayerCall = client.SendPlayerGameData();
@@ -103,7 +97,7 @@ namespace ClientTwo
                     {
                         Invoke((Action)(() =>
                         {
-                            opponentGameData = new OpponentGameData
+                            OpponentGameData opponentGameData = new OpponentGameData
                             {
                                 Position = message.Position,
                                 Text = message.Text,
@@ -442,11 +436,6 @@ namespace ClientTwo
 
         private async void SurrenderButton_Click(object sender, EventArgs e)
         {
-            gameMessage = new GameMessage
-            {
-                Position = "SurrenderButton"
-            };
-
             ChangeButtonsStatus(new Dictionary<string, bool>
             {
                 { "NewGameButton" , true },
@@ -457,7 +446,7 @@ namespace ClientTwo
 
             await SendGameDataRequestAsync(new PlayerGameDataRequest
             {
-                Position = gameMessage.Position,
+                Position = "SurrenderButton",
                 ClientId = clientId,
                 ClientIdToSend = clientIdToSend,
                 FirstTime = false
@@ -481,14 +470,9 @@ namespace ClientTwo
 
         private async void NewGameButton_Click(object sender, EventArgs e)
         {
-            gameMessage = new GameMessage
-            {
-                Position = "NewGameButton"
-            };
-
             await SendGameDataRequestAsync(new PlayerGameDataRequest
             {
-                Position = gameMessage.Position,
+                Position = "NewGameButton",
                 ClientId = clientId,
                 ClientIdToSend = clientIdToSend,
                 FirstTime = false
@@ -661,7 +645,7 @@ namespace ClientTwo
                 button.Text = user.ChosenSymbol;
                 button.BackColor = Color.PaleGreen;
 
-                gameMessage = new GameMessage
+                GameMessage gameMessage = new GameMessage
                 {
                     Position = button.Name,
                     Text = user.ChosenSymbol,

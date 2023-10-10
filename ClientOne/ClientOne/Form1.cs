@@ -26,10 +26,8 @@ namespace ClientOne
 
         private string clientId = "11111";
         private string clientIdToSend = "0000";
-
         private bool isValidMove = true;
-        GameMessage gameMessage;
-        OpponentGameData opponentGameData;
+
         OpponentUser opponnentUser;
         User user;
 
@@ -52,7 +50,7 @@ namespace ClientOne
                 {"btnTic",  false},
                 {"Symbol" , false},
                 {"SurrenderButton" , false},
-                {"Send" , true},
+                {"Send" , false},
                 {"NewGameButton" , false},
             });
         }
@@ -63,8 +61,7 @@ namespace ClientOne
             {
                 string address = $"http://{ServerIPtextBox.Text}:{ServerPortTextBox.Text}";
 
-                channel = GrpcChannel.ForAddress("https://localhost:7069");
-
+                channel = GrpcChannel.ForAddress(address);
                 client = new Greeter.GreeterClient(channel);
 
                 streamingPlayerCall = client.SendPlayerGameData();
@@ -78,6 +75,7 @@ namespace ClientOne
                 streamingPlayerInfoCall = client.SendPlayerInfoData();
                 requestPlayerInfoStream = streamingPlayerInfoCall.RequestStream;
                 responsePlayerInfoStream = streamingPlayerInfoCall.ResponseStream;
+
                 ChangeButtonsStatus(new Dictionary<string, bool> { { "Symbol", true } });
 
 
@@ -103,7 +101,7 @@ namespace ClientOne
                     {
                         Invoke((Action)(() =>
                         {
-                            opponentGameData = new OpponentGameData
+                            OpponentGameData opponentGameData = new OpponentGameData
                             {
                                 Position = message.Position,
                                 Text = message.Text,
@@ -441,14 +439,9 @@ namespace ClientOne
 
         private async void SurrenderButton_Click(object sender, EventArgs e)
         {
-            gameMessage = new GameMessage
-            {
-                Position = "SurrenderButton"
-            };
-
             await SendGameDataRequestAsync(new PlayerGameDataRequest
             {
-                Position = gameMessage.Position,
+                Position = "SurrenderButton",
                 ClientId = clientId,
                 ClientIdToSend = clientIdToSend,
                 FirstTime = false
@@ -481,14 +474,9 @@ namespace ClientOne
 
         private async void NewGameButton_Click(object sender, EventArgs e)
         {
-            gameMessage = new GameMessage
-            {
-                Position = "NewGameButton"
-            };
-
             await SendGameDataRequestAsync(new PlayerGameDataRequest
             {
-                Position = gameMessage.Position,
+                Position = "NewGameButton",
                 ClientId = clientId,
                 ClientIdToSend = clientIdToSend,
                 FirstTime = false
@@ -662,7 +650,7 @@ namespace ClientOne
                 button.Text = user.ChosenSymbol;
                 button.BackColor = Color.Orange;
 
-                gameMessage = new GameMessage
+                GameMessage gameMessage = new GameMessage
                 {
                     Position = button.Name,
                     Text = user.ChosenSymbol,

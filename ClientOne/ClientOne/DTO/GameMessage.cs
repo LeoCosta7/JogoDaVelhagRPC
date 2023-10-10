@@ -1,13 +1,6 @@
-﻿using ClientOne.DTO.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ClientOne.DTO
+﻿namespace ClientOne.DTO
 {
-    public class GameMessage : IMessageType
+    public class GameMessage
     {
         public string Position { get; set; }
 
@@ -15,6 +8,5 @@ namespace ClientOne.DTO
 
         public bool ClientPlayed { get; set; }
 
-        public string MessageType => "GameMessage";
     }
 }
